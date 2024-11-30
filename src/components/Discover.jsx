@@ -16,13 +16,13 @@ const Discover = () => {
       <Sidebar />
 
       {/* Main Content */}
-      <div className="flex-1 lg:ml-64 p-6 lg:p-8 overflow-x-hidden mt-12">
-        <header className="mb-8">
+      <div className="flex-1 lg:ml-64 overflow-x-hidden mt-12">
+        <header className="mb-8 p-6  lg:px-8">
           <h1 className="text-2xl lg:text-3xl font-bold mb-2">Welcome to BirdScout!</h1>
           <p className="text-base lg:text-lg text-gray-600">Explore Nature</p>
         </header>
 
-        <section className="mb-12">
+        <section className="mb-12 px-6  lg:px-8">
           <h2 className="text-xl lg:text-2xl font-semibold mb-4">Discover bird species</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
             <img
@@ -49,7 +49,7 @@ const Discover = () => {
           <Button text="Explore More" />
         </section>
 
-        <section className="gap-8 lg:gap-12 grid grid-cols-1 lg:grid-cols-2">
+        <section className="gap-8 lg:gap-12 grid grid-cols-1 lg:grid-cols-2 px-6 lg:px-8">
           <div className="col-span-1 bg-lime-200 p-4 rounded-lg">
             <h3 className="text-lg lg:text-xl font-semibold mb-4">Test Your Bird Knowledge</h3>
             <div className="flex flex-col lg:flex-row items-center lg:items-start space-y-4 lg:space-y-0 lg:space-x-4">
@@ -84,7 +84,7 @@ const Discover = () => {
             </div>
           </div>
         </section>
-        
+        <Footer className=""/>
       </div>
 
       {/* Right Sidebar */}
@@ -104,8 +104,8 @@ const Discover = () => {
         </div>
       </div>
 
+          {/* <Footer /> */}
       {/* Footer */}
-      <Footer />
     </div>
   );
 };
