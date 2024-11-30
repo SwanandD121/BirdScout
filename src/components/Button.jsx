@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types'
 
 const Button = ({ text, isActive, onClick }) => {
   return (
@@ -13,6 +13,12 @@ const Button = ({ text, isActive, onClick }) => {
       </button>
     </div>
   );
+}
+
+Button.propTypes = {
+  text: PropTypes.string.isRequired, 
+  isActive: PropTypes.bool.isRequired, 
+  onClick: PropTypes.func.isRequired
 }
 
 export default Button;

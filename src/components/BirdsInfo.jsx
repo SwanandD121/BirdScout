@@ -1,5 +1,3 @@
-import React from "react";
-
 const BirdsInfo = () => {
   return (
     <div className="flex min-h-screen bg-gray-100">
