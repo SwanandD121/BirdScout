@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 import Button from "./Button"
-import birdscoutlogo from "../assets/birdscout-logo-2.png"
+import birdscoutlogo from "../assets/logo.png"
 
 const Sidebar = () => {
   const location = useLocation()
@@ -49,8 +49,8 @@ const Sidebar = () => {
       >
         <div className="flex flex-col justify-between h-full">
           <div>
-            <div className="mb-8">
-              <img src={birdscoutlogo} alt="Logo" height={60} width={60} />
+            <div className="mb-8 md:flex md:justify-start flex justify-end">
+              <img src={birdscoutlogo} alt="Logo" height={50} width={40} />
             </div>
             <nav>
               <div className="space-y-4 flex flex-col ">
