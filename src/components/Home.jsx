@@ -106,10 +106,10 @@ const Home = () => {
             </div>
           </div>
         </section>
-      </div>
-      
+
       {/* Footer */}
       <Footer />
+      </div>
     </div>
   )
 }
