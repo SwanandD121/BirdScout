@@ -50,7 +50,7 @@ const Home = () => {
           <img
             src={sparrow}
             alt="Bird"
-            className="w-full md:w-1/2 h-60 md:h-4/5 object-cover rounded-lg shadow-md"
+            className="w-full md:w-1/2 h-120 md:h-4/5 object-cover rounded-lg shadow-md"
           />
           <div className="text-center md:text-left">
             <h2 className="text-3xl md:text-5xl font-semibold mb-4">
