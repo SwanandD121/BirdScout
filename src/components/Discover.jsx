@@ -100,7 +100,13 @@ const Discover = () => {
         </div>
         <div className="mb-8 flex flex-col gap-2">
           <h3 className="text-lg lg:text-xl font-semibold mb-2">Identify Birds with a Snap!</h3>
-          <Button text="Start Here" />
+          <Button
+              text="Identify Your Sighting"
+              onClick={() =>
+                (window.location.href =
+                  "https://b42ed6ef154169f582.gradio.live/")
+              }
+            />
         </div>
       </div>
 

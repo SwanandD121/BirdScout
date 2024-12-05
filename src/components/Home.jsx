@@ -34,7 +34,7 @@ const Home = () => {
               text="Identify Your Sighting"
               onClick={() =>
                 (window.location.href =
-                  "https://en.wikipedia.org/wiki/Peregrine_falcon")
+                  "https://b42ed6ef154169f582.gradio.live/")
               }
             />
           </div>
