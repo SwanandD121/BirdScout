@@ -63,10 +63,28 @@ const Sidebar = () => {
                     isActive={location.pathname === "/how-to-use"}
                   />
                 </Link>
-                <Link to="/discover">
+                {/* <Link to="/discover">
                   <Button
                     text="Discover"
                     isActive={location.pathname === "/discover"}
+                  />
+                </Link> */}
+                <Link to="/recentobservations">
+                  <Button
+                    text="Recent Observations"
+                    isActive={location.pathname === "/recentobservations"}
+                  />
+                </Link>
+                <Link to="/nearbyhotspots">
+                  <Button
+                    text="Nearby Hotspots"
+                    isActive={location.pathname === "/nearbyhotspots"}
+                  />
+                </Link>
+                <Link to="/specieslist">
+                  <Button
+                    text="Species List"
+                    isActive={location.pathname === "/specieslist"}
                   />
                 </Link>
                 <Link to="/report-crime">
@@ -79,7 +97,7 @@ const Sidebar = () => {
             </nav>
           </div>
           <div>
-            <Button text="Log Out" isActive={false} />
+            {/* <Button text="Log Out" isActive={false} /> */}
           </div>
         </div>
       </div>

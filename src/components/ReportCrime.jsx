@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Sidebar from './Sidebar';
 import wildlifecrimeimg from "../assets/wildlife-crime.jpeg";
 
 const ReportCrime = () => {
@@ -36,7 +35,7 @@ const ReportCrime = () => {
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
       {/* Sidebar */}
-      <Sidebar />
+      {/* <Sidebar /> */}
 
       {/* Main Content */}
       <div className="flex-1 p-5 md:ml-64 mt-12">
