@@ -104,7 +104,7 @@ const Discover = () => {
               text="Identify Your Sighting"
               onClick={() =>
                 (window.location.href =
-                  "https://f3ec93324545786b4e.gradio.live/")
+                  "https://0ffc8fb565ff60fdf8.gradio.live/")
               }
             />
         </div>
