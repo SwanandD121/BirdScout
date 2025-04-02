@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react"
 import Sidebar from "./Sidebar"
+import Button from "./Button"
 
 const NearbyHotspots = () => {
   const [regionCode, setRegionCode] = useState("")
@@ -93,12 +94,7 @@ const NearbyHotspots = () => {
             onChange={(e) => setRegionCode(e.target.value)}
             className="w-full md:w-full p-2 shadow-md border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
           />
-          <button
-            onClick={fetchHotspots}
-            className="p-2 shadow-md border bg-blue-500 text-white hover:bg-blue-600 rounded-md font-bold w-full sm:w-auto"
-          >
-            Search
-          </button>
+          <Button text="Search" onClick={fetchHotspots} />
         </div>
 
         {loading && (
@@ -137,13 +133,15 @@ const NearbyHotspots = () => {
             </p>
             <p className="text-gray-600">Latitude: {selectedHotspot.lat}</p>
             <p className="text-gray-600">Longitude: {selectedHotspot.lng}</p>
+            
+
             <a
               href={`https://www.google.com/maps/search/?api=1&query=${selectedHotspot.lat},${selectedHotspot.lng}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-block px-4 py-2 bg-green-500 text-white font-bold rounded-md shadow-md hover:bg-green-600"
-            >
-              View on Google Maps
+              className="mt-4 inline-block  font-bold "
+              >
+              <Button text="View on Google Maps"/>
             </a>
           </div>
         )}

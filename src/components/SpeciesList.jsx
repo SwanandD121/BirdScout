@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Button from "./Button"
 
 const SpeciesListByRegion = () => {
   const [regionCode, setRegionCode] = useState("")
@@ -83,12 +84,7 @@ const SpeciesListByRegion = () => {
             onChange={(e) => setRegionCode(e.target.value)}
             className="w-full p-2 shadow-md border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
           />
-          <button
-            onClick={fetchSpeciesList}
-            className="p-2 shadow-md border bg-blue-500 text-white hover:bg-blue-600 rounded-md font-bold w-full sm:w-auto"
-          >
-            Search
-          </button>
+          <Button onClick={fetchSpeciesList} text="Search" />
         </div>
 
         {loading && <p className="text-blue-500 mt-4">Loading species list...</p>}

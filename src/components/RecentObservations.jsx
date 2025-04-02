@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react"
 import Sidebar from "./Sidebar"
+import Button from "./Button"
 
 const RecentObservations = () => {
   const [regionCode, setRegionCode] = useState("")
@@ -64,12 +65,7 @@ const RecentObservations = () => {
             onChange={(e) => setRegionCode(e.target.value)}
             className="w-full p-2 shadow-md border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500"
           />
-          <button
-            onClick={fetchObservations}
-            className="p-2 shadow-md border bg-blue-500 text-white hover:bg-blue-600 rounded-md font-bold w-full sm:w-auto"
-          >
-            Search
-          </button>
+          <Button onClick={fetchObservations} text="Search" />
         </div>
 
         {loading && (
