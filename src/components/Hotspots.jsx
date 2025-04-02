@@ -1,22 +1,22 @@
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
-import Sidebar from "./Sidebar";
+import { useState } from "react"
+import Sidebar from "./Sidebar"
 
 const NearbyHotspots = () => {
-  const [regionCode, setRegionCode] = useState("");
-  const [hotspots, setHotspots] = useState([]);
-  const [selectedHotspot, setSelectedHotspot] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [regionCode, setRegionCode] = useState("")
+  const [hotspots, setHotspots] = useState([])
+  const [selectedHotspot, setSelectedHotspot] = useState(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
 
   const fetchHotspots = async () => {
     if (!regionCode) {
-      setError("Please enter a region code.");
-      return;
+      setError("Please enter a region code.")
+      return
     }
 
-    setLoading(true);
-    setError("");
+    setLoading(true)
+    setError("")
 
     try {
       const response = await fetch(
@@ -26,25 +26,25 @@ const NearbyHotspots = () => {
             "x-ebirdapitoken": import.meta.env.VITE_EBIRD_API_KEY,
           },
         }
-      );
+      )
 
       if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
+        throw new Error(`Error: ${response.status}`)
       }
 
-      const data = await response.json();
-      setHotspots(data.slice(0, 10));
+      const data = await response.json()
+      setHotspots(data.slice(0, 10))
     } catch (err) {
-      setError("Failed to fetch hotspots. Please check the region code.");
+      setError("Failed to fetch hotspots. Please check the region code.")
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   const fetchHotspotInfo = async (locId) => {
-    setLoading(true);
-    setError("");
-    setSelectedHotspot(null);
+    setLoading(true)
+    setError("")
+    setSelectedHotspot(null)
 
     try {
       const response = await fetch(
@@ -54,20 +54,20 @@ const NearbyHotspots = () => {
             "x-ebirdapitoken": import.meta.env.VITE_EBIRD_API_KEY,
           },
         }
-      );
+      )
 
       if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
+        throw new Error(`Error: ${response.status}`)
       }
 
-      const data = await response.json();
-      setSelectedHotspot(data);
+      const data = await response.json()
+      setSelectedHotspot(data)
     } catch (err) {
-      setError("Failed to fetch hotspot info. Try again.");
+      setError("Failed to fetch hotspot info. Try again.")
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
@@ -77,8 +77,12 @@ const NearbyHotspots = () => {
       {/* Main Content */}
       <div className="flex-1 p-5 md:ml-64 mt-12 max-w-4xl mx-auto w-full">
         <header className="mb-8 space-y-4 text-center md:text-left">
-          <h1 className="text-3xl md:text-4xl font-bold">Nearby Birding Hotspots</h1>
-          <p className="text-gray-600">Enter a region code to get nearby birding hotspots.</p>
+          <h1 className="text-3xl md:text-4xl font-bold">
+            Nearby Birding Hotspots
+          </h1>
+          <p className="text-gray-600">
+            Enter a region code to get nearby birding hotspots.
+          </p>
         </header>
 
         <div className="space-y-4 flex flex-col md:items-center lg:items-start">
@@ -97,7 +101,9 @@ const NearbyHotspots = () => {
           </button>
         </div>
 
-        {loading && <p className="text-blue-500 mt-4 text-center">Loading...</p>}
+        {loading && (
+          <p className="text-blue-500 mt-4 text-center">Loading...</p>
+        )}
         {error && <p className="text-red-500 mt-4 text-center">{error}</p>}
 
         <ul className="mt-6 space-y-4">
@@ -118,13 +124,17 @@ const NearbyHotspots = () => {
       <div className="fixed right-0 top-0 h-screen w-full md:w-1/4 bg-gray-100 p-5 overflow-y-auto hidden md:block">
         <div className="mb-8 space-y-4">
           <h3 className="text-xl font-semibold">Birdwatching Matters</h3>
-          <p className="text-gray-600">Your contributions help track bird populations and biodiversity.</p>
+          <p className="text-gray-600">
+            Your contributions help track bird populations and biodiversity.
+          </p>
         </div>
 
         {selectedHotspot && (
           <div className="mt-6 p-4 shadow-md border border-gray-300 rounded-md">
             <h2 className="text-xl font-bold">{selectedHotspot.locName}</h2>
-            <p className="text-gray-600">Location ID: {selectedHotspot.locId}</p>
+            <p className="text-gray-600">
+              Location ID: {selectedHotspot.locId}
+            </p>
             <p className="text-gray-600">Latitude: {selectedHotspot.lat}</p>
             <p className="text-gray-600">Longitude: {selectedHotspot.lng}</p>
             <a
@@ -139,7 +149,7 @@ const NearbyHotspots = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default NearbyHotspots;
+export default NearbyHotspots

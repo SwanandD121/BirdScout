@@ -1,11 +1,13 @@
-import { useState } from "react"
-import { Link, useLocation } from "react-router-dom"
-import Button from "./Button"
-import birdscoutlogo from "../assets/logo.png"
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import Button from "./Button";
+import birdscoutlogo from "../assets/logo.png";
+import { useUser, SignInButton, SignOutButton } from "@clerk/clerk-react";
 
 const Sidebar = () => {
-  const location = useLocation()
-  const [isOpen, setIsOpen] = useState(false)
+  const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+  const { isSignedIn, user } = useUser();
 
   return (
     <div>
@@ -53,7 +55,7 @@ const Sidebar = () => {
               <img src={birdscoutlogo} alt="Logo" height={50} width={40} />
             </div>
             <nav>
-              <div className="space-y-4 flex flex-col ">
+              <div className="space-y-4 flex flex-col">
                 <Link to="/">
                   <Button text="Home" isActive={location.pathname === "/"} />
                 </Link>
@@ -63,12 +65,6 @@ const Sidebar = () => {
                     isActive={location.pathname === "/how-to-use"}
                   />
                 </Link>
-                {/* <Link to="/discover">
-                  <Button
-                    text="Discover"
-                    isActive={location.pathname === "/discover"}
-                  />
-                </Link> */}
                 <Link to="/recentobservations">
                   <Button
                     text="Recent Observations"
@@ -96,8 +92,29 @@ const Sidebar = () => {
               </div>
             </nav>
           </div>
-          <div>
-            {/* <Button text="Log Out" isActive={false} /> */}
+          <div className="mt-4 space-y-2">
+            {isSignedIn ? (
+              <>
+                <div className="text-sm text-gray-700 mb-2">
+                  Signed in as: {user.firstName}
+                </div>
+                <SignOutButton>
+                  <Button text="Sign Out">
+                    
+                  </Button>
+                  {/* <button className="w-full p-2 bg-red-500 text-white rounded hover:bg-red-600 transition-colors">
+                    Sign Out
+                  </button> */}
+                </SignOutButton>
+              </>
+            ) : (
+              <SignInButton mode="modal">
+                <Button text="Sign In"></Button>
+                {/* <button className="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+                  Sign In
+                </button> */}
+              </SignInButton>
+            )}
           </div>
         </div>
       </div>
@@ -110,7 +127,7 @@ const Sidebar = () => {
         ></div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
